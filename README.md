@@ -37,7 +37,15 @@ DCI 项目架构
   - mq （消息队列的消费者监听）
 - biz 主要流程层，放置整个项目要做的主要任务流程，调用domain层中的接口
 - domain 领域层，在这个层级进行领域建模
-  - entity
-  - repository
-  - service
+  - entity 领域实体
+  - repository 实体的数据库操作
+  - service 实体对外提供的服务
 - infrastructure 基础设施层，为其他层提供支持，不会调用其他层的代码
+  - impl 实现层，实现domain层中的service和repository接口
+    - adapter
+    - persistent
+    - reference
+    - serviceimpl
+    - driver
+  - configs
+  - tools
