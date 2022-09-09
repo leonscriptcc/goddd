@@ -1,4 +1,4 @@
-package logs
+package glog
 
 import (
 	"github.com/leonscriptcc/goddd/infrastructure/gconfig"
@@ -15,7 +15,7 @@ var logger *zap.Logger
 func Init() (err error) {
 	if gconfig.Parameters.Mode == tools.ENV_DEV {
 		// 开发环境日志输出到终端展示
-		logger, err = zap.NewProduction()
+		logger, err = zap.NewDevelopment()
 		if err != nil {
 			return err
 		}

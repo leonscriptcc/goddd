@@ -11,7 +11,7 @@ func Load() error {
 	// 从yaml文件获取nacos配置
 	vconfig := viper.New()
 	// 添加读取的配置文件路径
-	vconfig.AddConfigPath("./config/")
+	vconfig.AddConfigPath("./infrastructure/gconfig/")
 	// 设置读取的配置文件
 	vconfig.SetConfigName("config")
 	// 读取文件类型
