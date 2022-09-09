@@ -42,10 +42,10 @@ DCI 项目架构
   - service 实体对外提供的服务
 - infrastructure 基础设施层，为其他层提供支持，不会调用其他层的代码
   - impl 实现层，实现domain层中的service和repository接口
-    - adapter
-    - persistent
-    - reference
-    - serviceimpl
-    - driver
-  - configs
-  - tools
+    - adapter 适配器，和domain层做适配（如有必要）
+    - persistent 实现domain中的repository
+    - reference 调用第三方功能
+    - serviceimpl 实现domain中的service
+    - driver 驱动，给其他层提供通信的平台，比如httpServer、mqConn
+  - configs 读取yaml配置
+  - tools 工具
