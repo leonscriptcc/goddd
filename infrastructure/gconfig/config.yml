@@ -1,5 +1,5 @@
-# 运行环境
-appEnv: dev
+# 运行环境 dev、uat、pro
+mode: dev
 
 # mysql 配置
 duWiMysqlConfig:
