@@ -49,11 +49,23 @@ type mysqlConfig struct {
 
 // zapLogConfig 日志相关配置
 type zapLogConfig struct {
-	InfoLogPath string `mapstructure:"infoLogPath"`
-	ErrLogPath  string `mapstructure:"errLogPath"`
+	InfoLogConfig infoLogConfig `mapstructure:"infoLogConfig"`
+	ErrLogConfig  errLogConfig  `mapstructure:"infoLogConfig"`
+}
+
+type logConfig struct {
+	LogPath string `mapstructure:"infoLogPath"`
 
 	MaxSize    int  `mapstructure:"maxSize"`
 	MaxBackups int  `mapstructure:"maxBackups"`
 	MaxAge     int  `mapstructure:"maxAge"`
 	Compress   bool `mapstructure:"compress"`
+}
+
+type infoLogConfig struct {
+	logConfig
+}
+
+type errLogConfig struct {
+	logConfig
 }
