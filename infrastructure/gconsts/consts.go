@@ -1,4 +1,4 @@
-package tools
+package gconsts
 
 const (
 	ENV_DEV = "dev"

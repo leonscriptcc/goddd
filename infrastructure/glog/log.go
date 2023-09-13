@@ -2,7 +2,7 @@ package glog
 
 import (
 	"github.com/leonscriptcc/goddd/infrastructure/gconfig"
-	"github.com/leonscriptcc/goddd/infrastructure/tools"
+	"github.com/leonscriptcc/goddd/infrastructure/gconsts"
 	"github.com/natefinch/lumberjack"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -13,7 +13,7 @@ var logger *zap.Logger
 
 // Init 日志初始化
 func Init() (err error) {
-	if gconfig.Parameters.Mode == tools.ENV_DEV {
+	if gconfig.Parameters.Mode == gconsts.ENV_DEV {
 		// 开发环境日志输出到终端展示
 		logger, err = zap.NewDevelopment()
 		if err != nil {
@@ -32,7 +32,7 @@ func Init() (err error) {
 		// 自定义 info zap core
 		// hook 确定输出的日志级别
 		infoLV := zap.LevelEnablerFunc(func(lvl zapcore.Level) bool {
-			return lvl >= zap.ErrorLevel
+			return lvl <= zap.InfoLevel
 		})
 		// 日志rotate
 		infoFileWriteSyncer := zapcore.AddSync(&lumberjack.Logger{
