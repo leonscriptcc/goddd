@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/leonscriptcc/goddd/infrastructure/gconfig"
 	"github.com/leonscriptcc/goddd/infrastructure/glog"
+	"github.com/leonscriptcc/goddd/wire"
 	"log"
 )
 
@@ -14,10 +15,13 @@ func init() {
 
 	// 初始化日志服务
 	if err := glog.Init(); err != nil {
-		log.Panic("logs init fail:", err)
+		log.Panic("init log fail:", err)
 	}
 }
 
 func main() {
+	httpService := wire.Wire()
 
+	// 启动http服务
+	httpService.Start()
 }

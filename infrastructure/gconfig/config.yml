@@ -1,13 +1,10 @@
 # 运行环境 dev、uat、pro
 mode: dev
 
-# mysql 配置
-duWiMysqlConfig:
-  host: 127.0.0.1
-  port: 3306
-  user: root
-  password: 123456
-  schema: dtct
-  maxIdleConns: 5
-  connMaxLifetime: 60
-  maxOpenConns: 20
+# http server 配置
+httpServerConfig:
+  listeningPort: 8090
+
+# 数据库配置
+dbConfig:
+  sqliteUrl: /Users/leonscript/Documents/DTCT/德塔智维/dtzw.db

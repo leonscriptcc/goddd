@@ -36,11 +36,11 @@ func Init() (err error) {
 		})
 		// 日志rotate
 		infoFileWriteSyncer := zapcore.AddSync(&lumberjack.Logger{
-			Filename:   gconfig.Parameters.ZapLogConfig.InfoLogConfig.LogPath,    //日志文件存放目录，如果文件夹不存在会自动创建
-			MaxSize:    gconfig.Parameters.ZapLogConfig.InfoLogConfig.MaxSize,    //文件大小限制,单位MB
-			MaxBackups: gconfig.Parameters.ZapLogConfig.InfoLogConfig.MaxBackups, //最大保留日志文件数量
-			MaxAge:     gconfig.Parameters.ZapLogConfig.InfoLogConfig.MaxAge,     //日志文件保留天数
-			Compress:   gconfig.Parameters.ZapLogConfig.InfoLogConfig.Compress,   //是否压缩处理
+			Filename:   gconfig.Parameters.ZapLog.InfoLogConfig.LogPath,    //日志文件存放目录，如果文件夹不存在会自动创建
+			MaxSize:    gconfig.Parameters.ZapLog.InfoLogConfig.MaxSize,    //文件大小限制,单位MB
+			MaxBackups: gconfig.Parameters.ZapLog.InfoLogConfig.MaxBackups, //最大保留日志文件数量
+			MaxAge:     gconfig.Parameters.ZapLog.InfoLogConfig.MaxAge,     //日志文件保留天数
+			Compress:   gconfig.Parameters.ZapLog.InfoLogConfig.Compress,   //是否压缩处理
 		})
 		// 创建zap
 		infoCore := zapcore.NewCore(
@@ -52,11 +52,11 @@ func Init() (err error) {
 		// 自定义 err zap core
 		// 日志rotate
 		errFileWriteSyncer := zapcore.AddSync(&lumberjack.Logger{
-			Filename:   gconfig.Parameters.ZapLogConfig.ErrLogConfig.LogPath,    //日志文件存放目录，如果文件夹不存在会自动创建
-			MaxSize:    gconfig.Parameters.ZapLogConfig.ErrLogConfig.MaxSize,    //文件大小限制,单位MB
-			MaxBackups: gconfig.Parameters.ZapLogConfig.ErrLogConfig.MaxBackups, //最大保留日志文件数量
-			MaxAge:     gconfig.Parameters.ZapLogConfig.ErrLogConfig.MaxAge,     //日志文件保留天数
-			Compress:   gconfig.Parameters.ZapLogConfig.ErrLogConfig.Compress,   //是否压缩处理
+			Filename:   gconfig.Parameters.ZapLog.ErrLogConfig.LogPath,    //日志文件存放目录，如果文件夹不存在会自动创建
+			MaxSize:    gconfig.Parameters.ZapLog.ErrLogConfig.MaxSize,    //文件大小限制,单位MB
+			MaxBackups: gconfig.Parameters.ZapLog.ErrLogConfig.MaxBackups, //最大保留日志文件数量
+			MaxAge:     gconfig.Parameters.ZapLog.ErrLogConfig.MaxAge,     //日志文件保留天数
+			Compress:   gconfig.Parameters.ZapLog.ErrLogConfig.Compress,   //是否压缩处理
 		})
 		// hook 确定输出的日志级别
 		errLV := zap.LevelEnablerFunc(func(lvl zapcore.Level) bool {
